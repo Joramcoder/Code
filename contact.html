@@ -14,36 +14,37 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        min-height: 100vh;
       }
 
       .container {
         background-color: #ffffff;
-        width: 100%;
+        width: 90%;
         max-width: 800px;
-        padding: 40px;
+        padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         text-align: center;
+        margin: 20px 0;
       }
 
       header {
         background-color: #4caf50;
         color: white;
         padding: 15px;
-        font-size: 1.8em;
+        font-size: 1.5em;
         border-radius: 8px 8px 0 0;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
 
-      h1,
       h2 {
-        margin: 0;
-        padding: 0;
+        margin: 10px 0 20px;
+        font-size: 1.8em;
       }
 
       label {
         text-align: left;
-        margin-top: 20px;
+        margin-top: 15px;
         font-size: 1.1em;
         color: #333;
         display: block;
@@ -54,19 +55,13 @@
       select,
       button {
         width: 100%;
-        padding: 12px;
+        padding: 10px;
         margin-top: 8px;
         border-radius: 8px;
         border: 1px solid #ddd;
         font-size: 1em;
         transition: border-color 0.3s ease;
-      }
-
-      input:focus,
-      select:focus,
-      button:focus {
-        outline: none;
-        border-color: #4caf50;
+        box-sizing: border-box;
       }
 
       button {
@@ -74,7 +69,6 @@
         color: white;
         font-size: 1.2em;
         cursor: pointer;
-        transition: background-color 0.3s ease;
         margin-top: 20px;
       }
 
@@ -83,23 +77,13 @@
       }
 
       .result {
-        margin-top: 30px;
+        margin-top: 20px;
         background-color: #4caf50;
         color: white;
-        padding: 20px;
+        padding: 15px;
         border-radius: 8px;
         display: none;
         transition: opacity 0.5s ease;
-      }
-
-      .result h3 {
-        font-size: 1.5em;
-        margin-bottom: 15px;
-      }
-
-      .result p {
-        font-size: 1.2em;
-        font-weight: bold;
       }
 
       a {
@@ -124,31 +108,31 @@
         margin: 0;
       }
 
-      /* Blog Section */
       .blog {
         background-color: #fff;
-        padding: 40px;
-        margin-top: 40px;
+        padding: 20px;
+        margin-top: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 90%;
       }
 
       .blog h2 {
-        font-size: 2em;
+        font-size: 1.8em;
         color: #333;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
       }
 
       .post {
         background-color: #f9f9f9;
-        padding: 20px;
+        padding: 15px;
         margin-bottom: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       }
 
       .post h3 {
-        font-size: 1.5em;
+        font-size: 1.3em;
         margin-bottom: 10px;
       }
 
@@ -158,20 +142,79 @@
         line-height: 1.6;
       }
 
-      /* Mobile Responsiveness */
       @media (max-width: 768px) {
-        .container {
-          padding: 20px;
-          margin: 10px;
+        header {
+          font-size: 1.3em;
+          padding: 10px;
+        }
+
+        h2 {
+          font-size: 1.5em;
+        }
+
+        label {
+          font-size: 1em;
+        }
+
+        input,
+        select,
+        button {
+          font-size: 0.9em;
+          padding: 10px;
         }
 
         .blog {
-          padding: 20px;
+          padding: 15px;
+        }
+
+        .post h3 {
+          font-size: 1.2em;
+        }
+
+        .post p {
+          font-size: 0.9em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h2 {
+          font-size: 1.3em;
+        }
+
+        label {
+          font-size: 0.9em;
+        }
+
+        input,
+        select,
+        button {
+          font-size: 0.8em;
+          padding: 8px;
+        }
+
+        .post h3 {
+          font-size: 1em;
+        }
+
+        .post p {
+          font-size: 0.8em;
         }
       }
     </style>
   </head>
   <body>
+    <a
+      href="javascript:history.back()"
+      style="
+        display: inline-block;
+        margin: 10px 0;
+        color: #4caf50;
+        text-decoration: none;
+        font-size: 1em;
+      "
+    >
+      ← Back
+    </a>
     <div class="container">
       <header>Jokim Tires</header>
 
@@ -277,18 +320,16 @@
             return;
           }
 
-          // Simple tire size calculation logic
           let tireSize = "";
 
           if (tireType === "passenger") {
-            tireSize = "205/55R16"; // Default size for passenger cars
+            tireSize = "205/55R16";
           } else if (tireType === "truck") {
-            tireSize = "265/70R17"; // Default size for trucks
+            tireSize = "265/70R17";
           } else if (tireType === "off-road") {
-            tireSize = "31x10.5R15"; // Default size for off-road vehicles
+            tireSize = "31x10.5R15";
           }
 
-          // Show the result with animation
           const resultDiv = document.getElementById("result");
           const resultText = document.getElementById("tire-size");
 
