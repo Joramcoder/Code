@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tire Size Calculator - Jokim Tires</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .container {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 800px;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 15px;
+        font-size: 1.8em;
+        border-radius: 8px 8px 0 0;
+        margin-bottom: 30px;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        padding: 0;
+      }
+
+      label {
+        text-align: left;
+        margin-top: 20px;
+        font-size: 1.1em;
+        color: #333;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 1em;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus,
+      select:focus,
+      button:focus {
+        outline: none;
+        border-color: #4caf50;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .result {
+        margin-top: 30px;
+        background-color: #4caf50;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        display: none;
+        transition: opacity 0.5s ease;
+      }
+
+      .result h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+      }
+
+      .result p {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      a {
+        color: #4caf50;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #777;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      /* Blog Section */
+      .blog {
+        background-color: #fff;
+        padding: 40px;
+        margin-top: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog h2 {
+        font-size: 2em;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .post {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .post h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .post p {
+        font-size: 1em;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        .blog {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>Jokim Tires</header>
+
+      <h2>Find Your Tire Size</h2>
+
+      <form id="tire-size-form">
+        <label for="make">Vehicle Make:</label>
+        <input
+          type="text"
+          id="make"
+          name="make"
+          placeholder="e.g., Toyota"
+          required
+        />
+
+        <label for="model">Vehicle Model:</label>
+        <input
+          type="text"
+          id="model"
+          name="model"
+          placeholder="e.g., Corolla"
+          required
+        />
+
+        <label for="year">Vehicle Year:</label>
+        <input
+          type="number"
+          id="year"
+          name="year"
+          placeholder="e.g., 2021"
+          required
+        />
+
+        <label for="tire-type">Tire Type:</label>
+        <select id="tire-type" name="tire-type" required>
+          <option value="">Select Tire Type</option>
+          <option value="passenger">Passenger</option>
+          <option value="truck">Truck</option>
+          <option value="off-road">Off-Road</option>
+        </select>
+
+        <button type="submit">Find Tire Size</button>
+      </form>
+
+      <div id="result" class="result">
+        <h3>Recommended Tire Size</h3>
+        <p id="tire-size"></p>
+      </div>
+
+      <a href="index.html">Back to Home</a>
+    </div>
+
+    <div class="blog">
+      <h2>Insights on Wheels</h2>
+
+      <div class="post">
+        <h3>Why Tire Maintenance Is Crucial for Your Safety</h3>
+        <p>
+          Regular tire maintenance is essential to ensure the safety and
+          longevity of your vehicle. From checking tire pressure to ensuring
+          adequate tread depth, a well-maintained tire helps prevent accidents
+          and boosts vehicle performance.
+        </p>
+      </div>
+
+      <div class="post">
+        <h3>Choosing the Right Tire for Your Vehicle</h3>
+        <p>
+          Picking the right tire type for your vehicle is more than just a
+          choice — it's an investment in your safety. Whether you're driving a
+          passenger car, a truck, or an off-road vehicle, choosing the right
+          tire ensures optimal performance and efficiency on the road.
+        </p>
+      </div>
+
+      <div class="post">
+        <h3>How to Save Money with Proper Tire Care</h3>
+        <p>
+          Maintaining your tires properly can save you money in the long run.
+          Regular tire rotation, proper inflation, and alignment checks can
+          extend the life of your tires and improve fuel efficiency.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Jokim Tires. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("tire-size-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const make = document.getElementById("make").value.trim();
+          const model = document.getElementById("model").value.trim();
+          const year = document.getElementById("year").value.trim();
+          const tireType = document.getElementById("tire-type").value;
+
+          if (!make || !model || !year || !tireType) {
+            alert("Please fill out all fields.");
+            return;
+          }
+
+          // Simple tire size calculation logic
+          let tireSize = "";
+
+          if (tireType === "passenger") {
+            tireSize = "205/55R16"; // Default size for passenger cars
+          } else if (tireType === "truck") {
+            tireSize = "265/70R17"; // Default size for trucks
+          } else if (tireType === "off-road") {
+            tireSize = "31x10.5R15"; // Default size for off-road vehicles
+          }
+
+          // Show the result with animation
+          const resultDiv = document.getElementById("result");
+          const resultText = document.getElementById("tire-size");
+
+          resultDiv.style.display = "block";
+          resultDiv.style.opacity = 0;
+          setTimeout(() => {
+            resultDiv.style.opacity = 1;
+            resultText.innerText = tireSize;
+          }, 100);
+        });
+    </script>
+  </body>
+</html>
