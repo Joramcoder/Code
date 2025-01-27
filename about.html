@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Jokim Tyres</title>
+    <style>
+      /* Basic Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      section {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: white;
+      }
+
+      h1,
+      h2 {
+        color: #4caf50;
+      }
+
+      .mission-vision,
+      .quality-assurance,
+      .sustainability,
+      .testimonials {
+        margin-bottom: 30px;
+      }
+
+      .cta {
+        text-align: center;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        margin-top: 30px;
+        cursor: pointer;
+        border: none;
+      }
+
+      .cta:hover {
+        background-color: #45a049;
+      }
+
+      .back-button {
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      .back-button:hover {
+        background-color: #d32f2f;
+      }
+
+      /* Styling for testimonial slider */
+      .testimonial-slider {
+        display: flex;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+
+      .testimonial-slider .testimonial {
+        min-width: 100%;
+        padding: 20px;
+        text-align: center;
+        background-color: #e7f5e3;
+        border-radius: 10px;
+      }
+
+      .testimonial-slider .testimonial p {
+        font-style: italic;
+      }
+
+      /* Animation for Testimonials */
+      .testimonial-slider {
+        transition: transform 0.5s ease;
+      }
+
+      /* Copyright Section */
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Jokim Tyres</h1>
+      <p>Your trusted partner for high-quality tires and expert services</p>
+    </header>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back to Home</button>
+
+    <section>
+      <div class="intro">
+        <h2>Who We Are</h2>
+        <p>
+          Jokim Tyres is a trusted provider of high-quality tires for vehicles
+          of all types, serving our community for over 20 years. We specialize
+          in delivering reliable and durable tires to keep you safely on the
+          road.
+        </p>
+      </div>
+
+      <div class="mission-vision">
+        <h2>Our Mission & Vision</h2>
+        <p>
+          <strong>Mission:</strong> Our mission is to provide superior tire
+          solutions that enhance safety and performance for all drivers. We aim
+          to lead in quality, service, and customer satisfaction.
+        </p>
+        <p>
+          <strong>Vision:</strong> We strive to be the go-to choice for tire
+          services, leading innovation and providing peace of mind to all road
+          users worldwide.
+        </p>
+      </div>
+
+      <div class="quality-assurance">
+        <h2>Quality Assurance</h2>
+        <p>
+          Our tires go through rigorous quality control to ensure they meet
+          international safety standards, providing you with peace of mind every
+          time you hit the road. We partner with top-tier brands to offer the
+          best for our customers.
+        </p>
+      </div>
+
+      <div class="sustainability">
+        <h2>Our Commitment to Sustainability</h2>
+        <p>
+          We are committed to reducing our environmental footprint. From
+          offering eco-friendly tire options to recycling programs, we ensure
+          our operations align with sustainability.
+        </p>
+      </div>
+
+      <div class="testimonials">
+        <h2>Customer Testimonials</h2>
+        <div class="testimonial-slider" id="testimonialSlider">
+          <div class="testimonial">
+            <p>
+              "Jokim Tyres provided me with the perfect tire for my car, and the
+              service was exceptional. I wouldn’t go anywhere else!" — Emma,
+              Loyal Customer
+            </p>
+          </div>
+          <div class="testimonial">
+            <p>
+              "Great service and fast! Highly recommend Jokim Tyres for anyone
+              looking to get top-notch quality and reliability." — John, Regular
+              Customer
+            </p>
+          </div>
+          <div class="testimonial">
+            <p>
+              "I trust Jokim Tyres for all my tire needs. They always go above
+              and beyond with their customer service." — Laura, Satisfied Driver
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer with Copyright -->
+    <footer>
+      <p>&copy; 2025 Jokim Tyres. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // JavaScript to handle testimonial slider (still in case you'd want to use it later)
+      let currentIndex = 0;
+      const testimonials = document.querySelectorAll(".testimonial");
+      const totalTestimonials = testimonials.length;
+
+      // Go back to the previous page (Home)
+      function goBack() {
+        window.history.back(); // Go back to the previous page
+      }
+    </script>
+  </body>
+</html>
