@@ -5,201 +5,285 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Jokim Tyres</title>
     <style>
-      /* Basic Styles */
+      /* Global Styles */
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Arial", sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f4f4f4;
+        background-color: #fafafa;
         color: #333;
+        line-height: 1.6;
       }
 
+      /* Back Button */
+      .back-btn {
+        display: inline-block;
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 25px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        margin: 50px;
+        margin-top: 30px;
+      }
+
+      .back-btn:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+      }
+
+      /* Header Section */
       header {
         background-color: #4caf50;
         color: white;
-        padding: 20px;
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      header h1 {
+        font-size: 3.2rem;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      header p {
+        font-size: 1.4rem;
+        margin-top: 10px;
+      }
+
+      /* About Us Section */
+      .about-container {
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        margin-bottom: 50px;
+      }
+
+      .about-container h2 {
+        font-size: 2.8rem;
+        color: #4caf50;
+        margin-bottom: 25px;
         text-align: center;
       }
 
-      section {
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-        background-color: white;
+      .about-container p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 15px;
+        line-height: 1.8;
       }
 
-      h1,
-      h2 {
+      /* Services Section */
+      .services {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+      }
+
+      .service-card {
+        background-color: #f4f7fa;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        flex-basis: 30%;
+      }
+
+      .service-card:hover {
+        transform: scale(1.05);
+      }
+
+      .service-card h3 {
+        font-size: 1.8rem;
         color: #4caf50;
       }
 
-      .mission-vision,
-      .quality-assurance,
-      .sustainability,
+      .service-card p {
+        font-size: 1.1rem;
+        color: #777;
+        margin-top: 15px;
+      }
+
+      /* Testimonial Section */
       .testimonials {
-        margin-bottom: 30px;
-      }
-
-      .cta {
         text-align: center;
-        padding: 10px;
-        background-color: #4caf50;
-        color: white;
-        margin-top: 30px;
-        cursor: pointer;
-        border: none;
+        margin-bottom: 50px;
       }
 
-      .cta:hover {
-        background-color: #45a049;
-      }
-
-      .back-button {
-        background-color: #f44336;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
+      .testimonial {
         display: inline-block;
-        margin-bottom: 20px;
-      }
-
-      .back-button:hover {
-        background-color: #d32f2f;
-      }
-
-      /* Styling for testimonial slider */
-      .testimonial-slider {
-        display: flex;
-        overflow: hidden;
-        border-radius: 10px;
-      }
-
-      .testimonial-slider .testimonial {
-        min-width: 100%;
-        padding: 20px;
-        text-align: center;
-        background-color: #e7f5e3;
-        border-radius: 10px;
-      }
-
-      .testimonial-slider .testimonial p {
         font-style: italic;
+        padding: 20px 40px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin: 0 20px;
+        max-width: 400px;
       }
 
-      /* Animation for Testimonials */
-      .testimonial-slider {
-        transition: transform 0.5s ease;
+      .testimonial p {
+        color: #555;
+        font-size: 1.1rem;
       }
 
-      /* Copyright Section */
+      .testimonial span {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 15px;
+        color: #333;
+      }
+
+      /* Footer Section */
       footer {
         background-color: #333;
         color: white;
         text-align: center;
-        padding: 10px;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        margin-top: 50px;
+        padding: 20px;
+        font-size: 0.9rem;
+      }
+
+      footer a {
+        color: #4caf50;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: #ffffff;
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .services {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .service-card {
+          flex-basis: 80%;
+        }
+
+        .testimonial {
+          max-width: 80%;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn">Back to Home</a>
+
+    <!-- Header Section -->
     <header>
-      <h1>Welcome to Jokim Tyres</h1>
-      <p>Your trusted partner for high-quality tires and expert services</p>
+      <h1>About Jokim Tyres</h1>
+      <p>Your Trusted Partner in Quality Tire Solutions</p>
     </header>
 
-    <!-- Back Button -->
-    <button class="back-button" onclick="goBack()">Back to Home</button>
+    <!-- About Us Section -->
+    <section class="about-container">
+      <h2>Welcome to Jokim Tyres</h2>
+      <p>
+        Jokim Tyres is a trusted provider of high-quality tires for vehicles of
+        all types. Serving our community for over 20 years, we specialize in
+        delivering reliable and durable tires to keep you safely on the road.
+      </p>
+      <p>
+        We offer a wide selection of tires tailored to meet the needs of all
+        vehicle types, from daily commuters to high-performance cars, SUVs, and
+        trucks. Our priority is delivering exceptional service while keeping
+        your safety our top priority.
+      </p>
+    </section>
 
-    <section>
-      <div class="intro">
-        <h2>Who We Are</h2>
+    <!-- Mission & Vision Section -->
+    <section class="about-container">
+      <h2>Mission & Vision</h2>
+      <p>
+        <strong>Mission:</strong> To provide superior tire solutions that
+        enhance safety, performance, and reliability for all drivers. We aim to
+        lead in quality, service, and customer satisfaction.
+      </p>
+      <p>
+        <strong>Vision:</strong> To be the foremost choice for tire-related
+        needs by staying ahead in innovation and by continually improving
+        customer satisfaction across the world.
+      </p>
+    </section>
+
+    <!-- Quality Assurance Section -->
+    <section class="about-container">
+      <h2>Quality Assurance</h2>
+      <p>
+        Our tires go through rigorous quality control to ensure they meet
+        international safety standards. From brand partnerships with top tire
+        manufacturers to cutting-edge technology, we offer premium quality and
+        durability for your peace of mind.
+      </p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+      <div class="service-card">
+        <h3>Expert Advice</h3>
         <p>
-          Jokim Tyres is a trusted provider of high-quality tires for vehicles
-          of all types, serving our community for over 20 years. We specialize
-          in delivering reliable and durable tires to keep you safely on the
-          road.
+          Our experts are always on hand to help you choose the right tire for
+          your needs and budget.
         </p>
       </div>
-
-      <div class="mission-vision">
-        <h2>Our Mission & Vision</h2>
+      <div class="service-card">
+        <h3>Fast & Reliable Service</h3>
         <p>
-          <strong>Mission:</strong> Our mission is to provide superior tire
-          solutions that enhance safety and performance for all drivers. We aim
-          to lead in quality, service, and customer satisfaction.
-        </p>
-        <p>
-          <strong>Vision:</strong> We strive to be the go-to choice for tire
-          services, leading innovation and providing peace of mind to all road
-          users worldwide.
+          Quick installation and repair services, getting you back on the road
+          without the hassle.
         </p>
       </div>
-
-      <div class="quality-assurance">
-        <h2>Quality Assurance</h2>
+      <div class="service-card">
+        <h3>Wide Selection</h3>
         <p>
-          Our tires go through rigorous quality control to ensure they meet
-          international safety standards, providing you with peace of mind every
-          time you hit the road. We partner with top-tier brands to offer the
-          best for our customers.
+          We offer a broad range of tire types, ensuring the perfect match for
+          your vehicle.
         </p>
-      </div>
-
-      <div class="sustainability">
-        <h2>Our Commitment to Sustainability</h2>
-        <p>
-          We are committed to reducing our environmental footprint. From
-          offering eco-friendly tire options to recycling programs, we ensure
-          our operations align with sustainability.
-        </p>
-      </div>
-
-      <div class="testimonials">
-        <h2>Customer Testimonials</h2>
-        <div class="testimonial-slider" id="testimonialSlider">
-          <div class="testimonial">
-            <p>
-              "Jokim Tyres provided me with the perfect tire for my car, and the
-              service was exceptional. I wouldn’t go anywhere else!" — Emma,
-              Loyal Customer
-            </p>
-          </div>
-          <div class="testimonial">
-            <p>
-              "Great service and fast! Highly recommend Jokim Tyres for anyone
-              looking to get top-notch quality and reliability." — John, Regular
-              Customer
-            </p>
-          </div>
-          <div class="testimonial">
-            <p>
-              "I trust Jokim Tyres for all my tire needs. They always go above
-              and beyond with their customer service." — Laura, Satisfied Driver
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Footer with Copyright -->
+    <!-- Customer Testimonials Section -->
+    <section class="testimonials">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial">
+        <p>
+          "Jokim Tyres provided me with the perfect tire for my car, and the
+          service was exceptional. I wouldn't go anywhere else!"
+        </p>
+        <span>– Emma, Loyal Customer</span>
+      </div>
+      <div class="testimonial">
+        <p>
+          "The staff is friendly, knowledgeable, and made my tire-buying
+          experience so easy. Highly recommend!"
+        </p>
+        <span>– John, Regular Customer</span>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      <p>&copy; 2025 Jokim Tyres. All rights reserved.</p>
+      <p>
+        &copy; 2025 Jokim Tyres. All rights reserved. |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact Us</a>
+      </p>
     </footer>
-
-    <script>
-      // JavaScript to handle testimonial slider (still in case you'd want to use it later)
-      let currentIndex = 0;
-      const testimonials = document.querySelectorAll(".testimonial");
-      const totalTestimonials = testimonials.length;
-
-      // Go back to the previous page (Home)
-      function goBack() {
-        window.history.back(); // Go back to the previous page
-      }
-    </script>
   </body>
 </html>
