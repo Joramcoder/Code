@@ -97,6 +97,14 @@
       </p>
 
       <a href="index.html" class="back-btn">Back to Home</a>
+      <script>
+        document
+          .querySelector(".back-btn")
+          .addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default behavior (going back in history)
+            window.location.href = "index.html"; // Redirect directly to the homepage
+          });
+      </script>
     </div>
   </body>
 </html>
