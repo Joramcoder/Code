@@ -89,7 +89,7 @@ header {
 
 .brand-card {
   background: white;
-  border-radius: 10px;
+  border-radius: 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   max-width: 300px;
@@ -99,7 +99,6 @@ header {
   width: 100%;
   border-radius: 10px 10px 0 0;
 }
-
 .brand-card h4 {
   font-weight: 600;
 }

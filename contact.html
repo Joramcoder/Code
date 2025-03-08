@@ -305,41 +305,60 @@
     </footer>
 
     <script>
-      document
-        .getElementById("tire-size-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          const make = document.getElementById("make").value.trim();
-          const model = document.getElementById("model").value.trim();
-          const year = document.getElementById("year").value.trim();
-          const tireType = document.getElementById("tire-type").value;
-
-          if (!make || !model || !year || !tireType) {
-            alert("Please fill out all fields.");
-            return;
+      const EDMUNDS_API_KEY = 'YOUR_EDMUNDS_API_KEY'; // Replace with your key
+    
+      document.getElementById('tire-size-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+    
+        const make = document.getElementById('make').value.trim().toLowerCase();
+        const model = document.getElementById('model').value.trim().toLowerCase();
+        const year = document.getElementById('year').value.trim();
+        const tireType = document.getElementById('tire-type').value;
+    
+        // Validate inputs
+        if (!make || !model || !year || !tireType) {
+          alert('Please fill all fields');
+          return;
+        }
+    
+        try {
+          // Step 1: Get vehicle styles
+          const stylesUrl = https://api.edmunds.com/api/vehicle/v2/${make}/${model}/${year}/styles?fmt=json&api_key=${EDMUNDS_API_KEY};
+          const stylesRes = await fetch(stylesUrl);
+          const stylesData = await stylesRes.json();
+    
+          if (!stylesRes.ok || stylesData.errorType) {
+            throw new Error(stylesData.message || 'No vehicle found');
           }
-
-          let tireSize = "";
-
-          if (tireType === "passenger") {
-            tireSize = "205/55R16";
-          } else if (tireType === "truck") {
-            tireSize = "265/70R17";
-          } else if (tireType === "off-road") {
-            tireSize = "31x10.5R15";
+    
+          // Step 2: Get tire specs from first available style
+          const styleId = stylesData.styles[0].id;
+          const specsUrl = https://api.edmunds.com/api/vehicle/v2/styles/${styleId}/equipment?fmt=json&api_key=${EDMUNDS_API_KEY};
+          const specsRes = await fetch(specsUrl);
+          const specsData = await specsRes.json();
+    
+          // Extract tire sizes
+          const tires = specsData.equipment.find(e => e.equipmentType === 'TIRES');
+          const sizes = tires?.attributes?.filter(attr => 
+            attr.name.includes('Tire') && attr.value.includes('/')
+          ).map(attr => attr.value) || [];
+    
+          // Display results
+          const resultDiv = document.getElementById('result');
+          const resultText = document.getElementById('tire-size');
+          
+          if (sizes.length > 0) {
+            resultText.innerHTML = sizes.join('<br>');
+            resultDiv.style.display = 'block';
+          } else {
+            throw new Error('No tire sizes found for this vehicle');
           }
-
-          const resultDiv = document.getElementById("result");
-          const resultText = document.getElementById("tire-size");
-
-          resultDiv.style.display = "block";
-          resultDiv.style.opacity = 0;
-          setTimeout(() => {
-            resultDiv.style.opacity = 1;
-            resultText.innerText = tireSize;
-          }, 100);
-        });
+    
+        } catch (error) {
+          alert(Error: ${error.message});
+          console.error('API Error:', error);
+        }
+      });
     </script>
   </body>
 </html>
